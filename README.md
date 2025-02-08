@@ -10,7 +10,7 @@
 ![Biography Intro](screenshoots/nh2.png)
 *Biography Introduction | Biyografi Giriş Bölümü*
 
-![Timeline](screenshoots/nh3.ppg)
+![Timeline](screenshoots/nh3.png)
 *Interactive Timeline | Etkileşimli Zaman Çizelgesi*
 
 ![Biography Details](screenshoots/nh4.png)
