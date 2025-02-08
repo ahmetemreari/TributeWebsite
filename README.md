@@ -4,22 +4,22 @@
 
 ## Screenshots | Ekran Görüntüleri
 
-![Hero Section](screenshots/nh1.jpg)
+![Hero Section](screenshots/nh1.png)
 *Hero Section with Parallax Effect | Paralaks Efektli Giriş Bölümü*
 
-![Biography Intro](screenshots/nh2.jpg)
+![Biography Intro](screenshots/nh2.png)
 *Biography Introduction | Biyografi Giriş Bölümü*
 
-![Timeline](screenshots/nh3.jpg)
+![Timeline](screenshots/nh3.ppg)
 *Interactive Timeline | Etkileşimli Zaman Çizelgesi*
 
-![Biography Details](screenshots/nh4.jpg)
+![Biography Details](screenshots/nh4.png)
 *Detailed Biography Section | Detaylı Biyografi Bölümü*
 
-![Works Grid](screenshots/nh5.jpg)
+![Works Grid](screenshots/nh5.png)
 *Works Display Grid | Eserler Gösterim Izgarası*
 
-![Mobile View](screenshots/nh6.jpg)
+![Mobile View](screenshots/nh6.png)
 *Mobile Responsive Design | Mobil Uyumlu Tasarım*
 
 ## English
