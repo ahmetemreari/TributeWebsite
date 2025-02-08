@@ -61,7 +61,7 @@ A modern and responsive tribute website dedicated to the renowned Turkish poet N
 ### Installation and Usage
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/nazim-hikmet-tribute.git
+git clone https://github.com/ahmetemreari/TributeWebsite.git
 ```
 2. Open `index.html` in your browser
 
@@ -104,7 +104,7 @@ git clone https://github.com/yourusername/nazim-hikmet-tribute.git
 ### Kurulum ve Kullanım
 1. Depoyu klonlayın
 ```bash
-git clone https://github.com/kullaniciadin/nazim-hikmet-tribute.git
+git clone https://github.com/kullaniciadin/TributeWebsite.git
 ```
 2. `index.html` dosyasını tarayıcınızda açın
 
@@ -115,4 +115,4 @@ MIT License | MIT Lisansı
 Pull requests are welcome. | Pull request'lere açığız.
 
 ## Contact | İletişim
-Project Link | Proje Bağlantısı: [https://github.com/ahmetemreari/nazim-hikmet-tribute](https://github.com/ahmetemreari/nazim-hikmet-tribute)
+Project Link | Proje Bağlantısı: [https://github.com/ahmetemreari/TributeWebsite](https://github.com/ahmetemreari/TributeWebsite)
