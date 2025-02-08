@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nazım Hikmet'in hayatı ve eserleri">
+    <title>Nazım Hikmet | Şair-i Azam</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --gold: #B8860B;
+            --dark: #1C1C1C;
+            --cream: #F5F5F5;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .nav-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            color: var(--white);
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Cormorant', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-quote {
+            font-size: 1.5rem;
+            max-width: 600px;
+            font-weight: 300;
+            border-left: 3px solid var(--gold);
+            padding-left: 2rem;
+            margin-top: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3.5rem;
+            color: var(--dark);
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .biography-intro {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .intro-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .poet-image {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .intro-image:hover .poet-image {
+            transform: scale(1.05);
+        }
+
+        .intro-quote {
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .intro-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+        }
+
+        .timeline-period {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            position: relative;
+        }
+
+        .timeline-period.reverse {
+            grid-template-columns: 1fr 400px;
+        }
+
+        .period-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .period-photo {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .period-image:hover .period-photo {
+            transform: scale(1.05);
+        }
+
+        .timeline-content {
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .timeline-year {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant', serif;
+        }
+
+        .timeline-title {
+            font-family: 'Cormorant', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .timeline-details {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            list-style-type: none;
+        }
+
+        .timeline-details li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .timeline-details li::before {
+            content: '•';
+            color: var(--gold);
+            position: absolute;
+            left: -1rem;
+        }
+
+        .period-quote {
+            font-family: 'Cormorant', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        .biography-conclusion {
+            text-align: center;
+            margin-top: 6rem;
+            padding: 4rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .conclusion-title {
+            font-family: 'Cormorant', serif;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+        }
+
+        .conclusion-quote {
+            font-family: 'Cormorant', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+
+        .work-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .work-card:hover .work-image {
+            transform: scale(1.05);
+        }
+
+        .work-content {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .work-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            right: 2rem;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.3;
+        }
+
+        .work-title {
+            font-family: 'Cormorant', serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .work-year {
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .work-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 1200px) {
+            .biography-intro,
+            .timeline-period,
+            .timeline-period.reverse {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-quote {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-quote {
+                font-size: 1.6rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <nav>
+            <a href="#" class="nav-logo">NH</a>
+            <ul class="nav-links">
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#biography">Biyografi</a></li>
+                <li><a href="#works">Eserleri</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Nazım Hikmet Ran<br>1902 - 1963</h1>
+            <div class="hero-quote">
+                "Yaşamak bir ağaç gibi tek ve hür<br>
+                ve bir orman gibi kardeşçesine."
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="biography">
+        <h2 class="section-title">Yaşam Öyküsü</h2>
+        
+        <div class="biography-intro">
+            <div class="intro-image">
+                <img src="https://nazimhikmet.com/wp-content/uploads/2023/05/Nazim-Hikmet-Davet.png" alt="Nazım Hikmet Portre" class="poet-image">
+            </div>
+            <div class="intro-text">
+                <p class="intro-quote">"Güzel günler göreceğiz çocuklar, güneşli günler göreceğiz..."</p>
+                <p class="intro-description">20. yüzyıl Türk şiirinin en önemli isimlerinden biri olan Nazım Hikmet, geleneksel Türk şiirini modernize eden, toplumcu gerçekçi akımın öncüsü ve dünya çapında tanınan bir şairdir. Şiirleri 50'den fazla dile çevrilmiş, eserleri dünya edebiyatının klasikleri arasına girmiştir.</p>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-period">
+                <div class="period-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Nazim_Hikmet.jpg/220px-Nazim_Hikmet.jpg" alt="Erken Dönem" class="period-photo">
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1902 - 1920</div>
+                    <h3 class="timeline-title">Çocukluk ve Eğitim Yılları</h3>
+                    <p>15 Ocak 1902'de Selanik'te dünyaya geldi. Dedesi Nazım Paşa'nın valiliği, babası Hikmet Bey'in devlet memurluğu ve annesi Celile Hanım'ın ressam kimliği, onun sanatsal ve entelektüel gelişiminde önemli rol oynadı.</p>
+                    <ul class="timeline-details">
+                        <li>1913: Galatasaray Lisesi'ne başladı</li>
+                        <li>1917: İlk şiiri "Feryad-ı Vatan"ı yazdı</li>
+                        <li>1919: Heybeliada Bahriye Mektebi'nden mezun oldu</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-period reverse">
+                <div class="timeline-content">
+                    <div class="timeline-year">1921 - 1938</div>
+                    <h3 class="timeline-title">Devrim ve Şiir Yılları</h3>
+                    <p>Anadolu'ya geçerek Kurtuluş Savaşı'na katıldı. Moskova'da KUTV'da eğitim gördü. Bu dönem, şiirinin devrimci karakterini şekillendirdi ve Türk şiirine yeni bir soluk getirdi.</p>
+                    <ul class="timeline-details">
+                        <li>1921: Anadolu'ya geçiş ve Kurtuluş Savaşı'na katılım</li>
+                        <li>1922-1924: Moskova'da eğitim</li>
+                        <li>1929: "835 Satır" yayımlandı</li>
+                        <li>1932: "Benerci Kendini Niçin Öldürdü?" yayımlandı</li>
+                    </ul>
+                    <div class="period-quote">"Sevdalınız komünisttir, on yıldan beri hapistir..."</div>
+                </div>
+                <div class="period-image">
+                    <img src="https://nazimhikmetmerkezi.com/wp-content/uploads/2015/03/PTDC0073-713x1030.jpg" alt="Devrim Yılları" class="period-photo">
+                </div>
+            </div>
+
+            <div class="timeline-period">
+                <div class="period-image">
+                    <img src="https://www.dergibursa.com.tr/wp-content/uploads/2015/10/N%C3%A2z%C4%B1m-Hik...jpg" alt="Hapishane Yılları" class="period-photo">
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1938 - 1950</div>
+                    <h3 class="timeline-title">Hapishane Yılları</h3>
+                    <p>Düşünceleri nedeniyle 28 yıl 4 ay hapse mahkûm edildi. Bursa, Çankırı ve İstanbul cezaevlerinde toplam 13 yıl kaldı. Bu dönem, en önemli eserlerinin doğuşuna tanıklık etti.</p>
+                    <ul class="timeline-details">
+                        <li>1938: Harp Okulu Davası ve tutuklama</li>
+                        <li>1939: "Şeyh Bedreddin Destanı"nı yazdı</li>
+                        <li>1945: "Memleketimden İnsan Manzaraları"nı yazmaya başladı</li>
+                        <li>1949: "Piraye'ye Mektuplar" yazıldı</li>
+                    </ul>
+                    <div class="period-quote">"En güzel deniz: henüz gidilmemiş olanıdır..."</div>
+                </div>
+            </div>
+
+            <div class="timeline-period reverse">
+                <div class="timeline-content">
+                    <div class="timeline-year">1950 - 1963</div>
+                    <h3 class="timeline-title">Sürgün ve Son Yıllar</h3>
+                    <p>1950'de hapisten çıktıktan sonra tekrar tutuklanma tehlikesiyle karşı karşıya kalınca Türkiye'den ayrılmak zorunda kaldı. Sürgün yıllarında dünya çapında tanınan bir şair haline geldi.</p>
+                    <ul class="timeline-details">
+                        <li>1951: Romanya üzerinden Moskova'ya gidiş</li>
+                        <li>1952: Dünya Barış Konseyi Uluslararası Barış Ödülü</li>
+                        <li>1959: "Son Şiirler" yayımlandı</li>
+                        <li>1963: Moskova'da vefat</li>
+                    </ul>
+                    <div class="period-quote">"Hoşça kalın, güzel gözlü kardeşlerim benim..."</div>
+                </div>
+                <div class="period-image">
+                    <img src="https://www.naziminhikayesi.com/wp-content/uploads/2020/03/4.8.-Nazim-Hikmetin-mektubu-s.jpg" alt="Son Yıllar" class="period-photo">
+                </div>
+            </div>
+        </div>
+
+        <div class="biography-conclusion">
+            <h3 class="conclusion-title">Edebi Mirası</h3>
+            <p>Nazım Hikmet'in şiiri, geleneksel formları modern bir anlayışla yeniden yorumlar. Toplumsal gerçekçilik ile lirik şiiri ustaca birleştiren şair, görsel öğeleri de şiirine dahil ederek özgün bir biçim yaratmıştır. Şiirlerindeki insani değerler, evrensel barış ve özgürlük vurgusu, günümüzde de güncelliğini korumaktadır.</p>
+            <div class="conclusion-quote">
+                "Ben yanmasam, sen yanmasan, biz yanmasak, nasıl çıkar karanlıklar aydınlığa..."
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="works">
+        <h2 class="section-title">Eserleri</h2>
+        <div class="works-grid">
+            <div class="work-card">
+                <img src="https://img.kitapyurdu.com/v1/getImage/fn:1010852/wh:true/wi:220" alt="835 Satır" class="work-image">
+                <div class="work-content">
+                    <h3 class="work-title">835 Satır</h3>
+                    <div class="work-year">1929</div>
+                    <p class="work-desc">İlk şiir kitaplarından biri olan bu eser, devrimci ve yenilikçi şiir anlayışının önemli örneklerini içerir.</p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="https://img.kitapyurdu.com/v1/getImage/fn:10254228/wh:true/wi:220" alt="Benerci Kendini Niçin Öldürdü?" class="work-image">
+                <div class="work-content">
+                    <h3 class="work-title">Benerci Kendini Niçin Öldürdü?</h3>
+                    <div class="work-year">1932</div>
+                    <p class="work-desc">Hint köylülerinin yaşamını ve sömürge düzenini anlatan destansı bir şiir.</p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <img src="https://upload.wikimedia.org/wikipedia/tr/thumb/5/54/Simavne_Kad%C4%B1s%C4%B1_O%C4%9Flu_%C5%9Eeyh_Bedreddin_Destan%C4%B1.jpg/220px-Simavne_Kad%C4%B1s%C4%B1_O%C4%9Flu_%C5%9Eeyh_Bedreddin_Destan%C4%B1.jpg" alt="Şeyh Bedreddin Destanı" class="work-image">
+                <div class="work-content">
+                    <h3 class="work-title">Şeyh Bedreddin Destanı</h3>
+                    <div class="work-year">1936</div>
+                    <p class="work-desc">Tarihsel bir isyan hikayesini şiirsel bir dille anlatan epik eser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>AHMET EMRE ARI</p>
+    </footer>
+</body>
+</html>
